@@ -58,4 +58,3 @@ For detailed information on configuration and usage, please refer to our compreh
   127.0.0.1:6379> flushall
   OK
   ```
-# cache-handler
