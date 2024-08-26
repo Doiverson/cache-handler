@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation";
-import { CacheStateWatcher } from "../cache-state-watcher";
-import { Suspense } from "react";
-import { RevalidateFrom } from "../revalidate-from";
-import Link from "next/link";
+import { notFound } from 'next/navigation';
+import { CacheStateWatcher } from '../cache-state-watcher';
+import { Suspense } from 'react';
+import { RevalidateFrom } from '../revalidate-from';
+import Link from 'next/link';
 
 type TimeData = {
   unixtime: number;
@@ -10,7 +10,7 @@ type TimeData = {
   timezone: string;
 };
 
-const timeZones = ["cet", "gmt"];
+const timeZones = ['cet', 'gmt'];
 
 export const revalidate = 500;
 
@@ -19,12 +19,9 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params: { timezone } }) {
-  const data = await fetch(
-    `https://worldtimeapi.org/api/timezone/${timezone}`,
-    {
-      next: { tags: ["time-data"] },
-    },
-  );
+  const data = await fetch(`https://worldtimeapi.org/api/timezone/${timezone}`, {
+    next: { tags: ['time-data'] },
+  });
 
   if (!data.ok) {
     notFound();
@@ -36,7 +33,11 @@ export default async function Page({ params: { timezone } }) {
     <>
       <header className="header">
         {timeZones.map((timeZone) => (
-          <Link key={timeZone} className="link" href={`/${timeZone}`}>
+          <Link
+            key={timeZone}
+            className="link"
+            href={`/${timeZone}`}
+          >
             {timeZone.toUpperCase()} Time
           </Link>
         ))}

@@ -27,7 +27,7 @@ Once you have installed the dependencies, you can begin running the example Redi
 docker-compose up -d
 ```
 
-Then, build and start the Next.js app as usual.
+Then, build and start the Next.js app as usual. The app will be running on ports 3000 and 3001.
 
 To see the cache logs use NEXT_PRIVATE_DEBUG_CACHE=1 [troubleshooting](https://caching-tools.github.io/next-shared-cache/troubleshooting)
 
